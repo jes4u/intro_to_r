@@ -14,6 +14,9 @@ suicides <- suicides %>%
   mutate(deaths = sum(deaths))
 
 #  Make a line plot of suicides by age
+line_of_age <- ggplot(suicides,aes(x = year, y = deaths, color = age)) +
+  geom_line(size = 3) +
+  facet_wrap(~sex, scales = "free")
 # (year on the x axis, deaths on the y axis, different line for each age).
 # facet by sex.
 
